@@ -12,13 +12,16 @@ function Login() {
   });
 
   const handleChange = (e) => {
+
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
+
   };
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
 
     try {
@@ -30,14 +33,21 @@ function Login() {
 
       localStorage.setItem("token", res.data.token);
 
-      alert("Login Successful");
+      alert(res.data.message);
 
     } catch (error) {
-      alert(error.response.data.message)
+
+      console.log(error);
+
+      alert(
+        error.response?.data?.message || "Something went wrong"
+      );
+
     }
   };
 
   return (
+
     <div className="auth-container">
 
       <div className="auth-card">
@@ -69,8 +79,11 @@ function Login() {
         <div className="auth-link">
           Don't have account? <Link to="/register">Register</Link>
         </div>
+
       </div>
+
     </div>
+
   );
 }
 

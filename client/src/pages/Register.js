@@ -13,32 +13,40 @@ function Register() {
   });
 
   const handleChange = (e) => {
+
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
+
   };
 
   const handleSubmit = async (e) => {
 
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
+    try {
 
-    const res = await axios.post(
-      "https://your-render-url.onrender.com/api/auth/register",
-      form
-    );
+      const res = await axios.post(
+        "https://your-render-url.onrender.com/api/auth/register",
+        form
+      );
 
-    alert(res.data.message);
+      alert(res.data.message);
 
-  } catch (error) {
+    } catch (error) {
 
-    alert(error.response.data.message);
+      console.log(error);
 
-  }
-};
+      alert(
+        error.response?.data?.message || "Something went wrong"
+      );
+
+    }
+  };
+
   return (
+
     <div className="auth-container">
 
       <div className="auth-card">
@@ -81,6 +89,7 @@ function Register() {
       </div>
 
     </div>
+
   );
 }
 
