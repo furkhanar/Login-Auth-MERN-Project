@@ -28,7 +28,7 @@ function Register() {
     try {
 
       const res = await axios.post(
-        "https://your-render-url.onrender.com/api/auth/register",
+        "https://login-auth-mern-project.onrender.com/api/auth/register",
         form
       );
 
