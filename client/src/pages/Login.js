@@ -33,7 +33,7 @@ function Login() {
       alert("Login Successful");
 
     } catch (error) {
-      alert(error.response.data);
+      alert(error.response.data.message)
     }
   };
 

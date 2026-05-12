@@ -29,10 +29,10 @@ function Register() {
         form
       );
 
-      alert(res.data);
+      alert(res.data.message)
 
     } catch (error) {
-      alert(error.response.data);
+      alert(res.data.message);
     }
   };
 
