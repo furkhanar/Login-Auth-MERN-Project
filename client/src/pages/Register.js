@@ -20,22 +20,24 @@ function Register() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    try {
+  e.preventDefault();
 
-      const res = await axios.post(
-        "https://login-auth-mern-project.onrender.com/api/auth/register",
-        form
-      );
+  try {
 
-      alert(res.data.message)
+    const res = await axios.post(
+      "https://your-render-url.onrender.com/api/auth/register",
+      form
+    );
 
-    } catch (error) {
-      alert(res.data.message);
-    }
-  };
+    alert(res.data.message);
 
+  } catch (error) {
+
+    alert(error.response.data.message);
+
+  }
+};
   return (
     <div className="auth-container">
 
